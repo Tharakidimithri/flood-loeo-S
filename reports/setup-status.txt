@@ -1,0 +1,1 @@
+COMPLETE: dependencies installed, GPU verified, benchmark saved in reports/memory_test.csv

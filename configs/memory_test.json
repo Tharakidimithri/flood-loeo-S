@@ -1,0 +1,1 @@
+{"batch_size":1,"sizes":[512,256],"precisions":["fp32","amp_fp16"],"warmup_steps":5,"measured_steps":20,"seed":42}

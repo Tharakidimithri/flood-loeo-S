@@ -1,0 +1,31 @@
+Thu Oct 22 13:29:32 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.78                 KMD Version: 610.78        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3050 ...  WDDM  |   00000000:01:00.0 Off |                  N/A |
+| N/A   44C    P8              3W /   45W |     156MiB /   4096MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5620    C+G   ...App_cw5n1h2txyewy\LockApp.exe      N/A      |
+|    0   N/A  N/A            7788    C+G   ...yb3d8bbwe\Microsoft.Notes.exe      N/A      |
+|    0   N/A  N/A            8224    C+G   ...1g1gvanyjgm\WhatsApp.Root.exe      N/A      |
+|    0   N/A  N/A            8316    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A            9412    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A           10316    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           14212    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           18208    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A           18800    C+G   ...ntrolPanel\SystemSettings.exe      N/A      |
+|    0   N/A  N/A           20864    C+G   ...ed_copilot\copilotapphost.exe      N/A      |
+|    0   N/A  N/A           25248    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
+|    0   N/A  N/A           29628    C+G   ...cw5n1h2txyewy\WidgetBoard.exe      N/A      |
++-----------------------------------------------------------------------------------------+
