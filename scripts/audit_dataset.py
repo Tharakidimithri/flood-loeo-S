@@ -36,8 +36,21 @@ def main():
             with rasterio.open(image) as src, rasterio.open(label) as mask:
                 if src.count != 2 or mask.count != 1: errors.append(f'Band count: {chip}')
                 if (src.height,src.width)!=(512,512): errors.append(f'Image dimensions: {chip}')
-                if (src.height,src.width,src.crs,src.transform)!=(mask.height,mask.width,mask.crs,mask.transform):
+                # Compare geographic displacement in source pixel units, not exact floats.
+                if (src.height, src.width, src.crs) != (mask.height, mask.width, mask.crs) or src.crs is None:
                     errors.append(f'Georeferencing mismatch: {chip}')
+                else:
+                    a, b = src.transform, mask.transform
+                    linear = np.array([[a.a, a.b], [a.d, a.e]], dtype=float)
+                    offsets = []
+                    for x, y in [(0, 0), (src.width, 0), (0, src.height), (src.width, src.height)]:
+                        delta = np.array([(b.a-a.a)*x + (b.b-a.b)*y + b.c-a.c,
+                                          (b.d-a.d)*x + (b.e-a.e)*y + b.f-a.f])
+                        offsets.append(float(np.linalg.norm(np.linalg.solve(linear, delta))))
+                    if not np.isfinite(offsets).all() or max(offsets) > 1e-6:
+                        errors.append(f'Georeferencing mismatch: {chip} (max displacement {max(offsets)} pixels)')
+                    if src.tags().get('AREA_OR_POINT', 'Area') != mask.tags().get('AREA_OR_POINT', 'Area'):
+                        errors.append(f'Raster pixel interpretation mismatch: {chip}')
                 values = set(np.unique(mask.read(1)).tolist())
                 if not values <= {-1,0,1}: errors.append(f'Unexpected labels: {chip}: {values}')
             audited += 1

@@ -8,7 +8,7 @@
 | bolivia | 15 |
 
 Unique chips: 446. Pairwise overlap: 0.
-Raster pairs audited: 0. Missing pairs: 446. Errors: 0.
+Raster pairs audited: 446. Missing pairs: 0. Errors: 0.
 
 The Bolivia split is separate from the standard train/validation/test files.
 These are upstream splits, not leave-one-event-out folds. Preserve them unchanged.

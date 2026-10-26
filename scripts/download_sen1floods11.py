@@ -119,7 +119,11 @@ def main():
            verified_bytes=completed_bytes, total_bytes=total_bytes, failed_files=len(errors))
     if errors: raise SystemExit(1)
     import subprocess, sys
-    subprocess.run([sys.executable, str(ROOT/'scripts/audit_dataset.py')], check=True)
+    audit = subprocess.run([sys.executable, str(ROOT/'scripts/audit_dataset.py')], check=False)
+    status(state='complete', complete_files=complete, total_files=len(objects),
+           verified_bytes=completed_bytes, total_bytes=total_bytes, failed_files=0,
+           audit_status='complete' if audit.returncode == 0 else 'failed')
+    if audit.returncode: raise SystemExit(audit.returncode)
 
 if __name__ == '__main__':
     try: main()

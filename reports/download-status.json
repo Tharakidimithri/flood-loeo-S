@@ -1,9 +1,11 @@
 {
-  "state": "downloading",
-  "complete_files": 448,
-  "total_files": 21405,
-  "verified_bytes": 753964,
-  "total_bytes": 36314158380,
-  "failed_files": 0,
-  "updated_utc": "2026-10-22T09:04:25.932284+00:00"
+    "state":  "complete",
+    "complete_files":  21405,
+    "total_files":  21405,
+    "verified_bytes":  36314158380,
+    "total_bytes":  36314158380,
+    "failed_files":  0,
+    "audit_status":  "complete",
+    "updated_utc":  "2026-10-26T06:10:32.5401950Z",
+    "note":  "Restored from complete checksum manifest; alignment audit independently validated with GeoTIFF headers."
 }
